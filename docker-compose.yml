@@ -1,0 +1,15 @@
+services:
+  radarr:
+    image: linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - ./config:/config
+      - ./downloads:/downloads
+      - ./movies:/movies
+    ports:
+      - 7878:7878
+    entrypoint: ["/app/entrypoint.sh"]
