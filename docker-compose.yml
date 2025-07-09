@@ -1,6 +1,7 @@
 services:
   radarr:
-    image: linuxserver/radarr:latest
+    build:
+      context: .
     container_name: radarr
     environment:
       - PUID=1000
@@ -12,4 +13,3 @@ services:
       - ./movies:/movies
     ports:
       - 7878:7878
-    entrypoint: ["/app/entrypoint.sh"]
